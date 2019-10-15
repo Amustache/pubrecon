@@ -10,7 +10,11 @@ def sigmoid(x):
     return 1 / (1 + np.exp(-x))
 
 
-def next_batch(X, tx, batch_size):
+def loss_function(tx, est):
+    return np.sum(np.pow(tx - est, 2))
+
+
+def next_batch(X, tx, batch_size=256):
     """
     Yields mini-batches of data.
     :param X: Dataset.
@@ -20,13 +24,6 @@ def next_batch(X, tx, batch_size):
     """
     for i in np.arange(0, X.shape[0], batch_size):
         yield (X[i:i + batch_size], tx[i:i + batch_size])
-
-
-def gradient(y, tx, initial_w):
-    est = y.dot(initial_w)
-    error = tx - est
-    grad = -(1. / len(tx)) * error.dot(tx)
-    return grad, np.pow(error, 2)
 
 
 def least_squares_GD(y, tx, initial_w, max_iters, gamma):
@@ -42,7 +39,10 @@ def least_squares_GD(y, tx, initial_w, max_iters, gamma):
     w = initial_w
     loss = 0
     for i in range(max_iters):
-        grad, loss = gradient(y, tx, w)
+        est = y.dot(initial_w)
+        error = tx - est
+        grad = (1. / tx.shape[0]) * error.dot(tx)
+        loss = loss_function(tx, est)
         w = w - gamma * grad
     return w, loss
 
@@ -57,6 +57,16 @@ def least_squares_SGD(y, tx, initial_w, max_iters, gamma):
     :param gamma: Step-size.
     :return: `(w, loss)`, with `w` the last weight vector of the method, and `loss` the corresponding loss value (cost function).
     """
+    w = initial_w
+    loss = 0
+    for i in range(max_iters):
+        for (batch_x, batch_tx) in next_batch(y, tx):
+            est = batch_x.dot(initial_w)
+            error = batch_tx - est
+            grad = (1. / batch_x.shape[0]) * batch_x.dot(error)
+            loss = loss_function(batch_tx, est)
+            w = w - gamma * grad
+    return w, loss
 
 
 def least_squares(y, tx):
