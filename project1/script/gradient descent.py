@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 """Gradient Descent"""
+from proj1_helpers import compute_loss
+
 
 def compute_gradient(y, tx, w):
     """

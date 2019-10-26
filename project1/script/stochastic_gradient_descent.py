@@ -17,7 +17,17 @@ def compute_stoch_gradient(y, tx, w):
 
 
 def stochastic_gradient_descent(y, tx, initial_w, batch_size, max_iters, gamma):
-    """Stochastic gradient descent algorithm."""
+    """
+    Stochastic gradient descent algorithm.
+
+    :param y: Predictions.
+    :param tx: Target.
+    :param initial_w: Initial weight vector.
+    :param batch_size: Size of the batch.
+    :param max_iters: Number of steps to run.
+    :param gamma: Step-size.
+    :return:`(w, loss)`, with `w` the last weight vector of the method, and `loss` the corresponding loss value (cost function).
+    """
     w = initial_w
     loss = 0
     for i in range(max_iters):
