@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Gradient Descent"""
-from proj1_helpers import compute_loss
+from script.costs import compute_loss
 
 
 def compute_gradient(y, tx, w):
@@ -31,6 +31,7 @@ def gradient_descent(y, tx, initial_w, max_iters, gamma):
     w = initial_w
     loss = 0
     for n_iter in range(max_iters):
+        print("Iter {} of {}".format(n_iter, max_iters))
         # compute gradient and loss
         grad, loss = compute_gradient(y, tx, w)
 

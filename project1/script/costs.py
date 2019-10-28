@@ -10,4 +10,8 @@ def compute_loss(y, tx, w):
     :param w: Weights.
     :return: Error, MSE-style.
     """
-    return ((y - tx @ w) ** 2).mean()
+    print(y.shape)
+    print(tx.T.shape)
+    print(w.shape)
+
+    return ((y - tx.dot(w)) ** 2).mean()
