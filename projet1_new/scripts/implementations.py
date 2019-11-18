@@ -2,7 +2,7 @@
 """Compulsory implementations"""
 from numpy import np
 from .costs import compute_loss
-from .helpers import batch_iter, sigmoid
+from .helpers import batch_iter, sigmoid_array
 from .stochastic_gradient_descent import compute_stoch_gradient
 from .gradient_descent import compute_gradient
 
@@ -101,7 +101,10 @@ def logistic_regression(y, tx, initial_w, max_iters, gamma):
     w = initial_w
     for n_iter in range(max_iters):
         # computer gradient and loss
-        grad, error = compute_gradient(y, tx, w)
+        y_pred = sigmoid_array(np.dot(tx, w))
+
+        error = y - y_pred
+        grad = -tx.T.dot(error) / len(error)
         loss = compute_loss(y, tx, w)
 
         # update w by gradient
@@ -109,7 +112,6 @@ def logistic_regression(y, tx, initial_w, max_iters, gamma):
 
         print("Gradient Descent({bi}/{ti}): loss={l}, w0={w0}, w1={w1}".format(bi=n_iter, ti=max_iters - 1, l=loss,
                                                                                w0=w[0], w1=w[1]))
-        y_pred = sigmoid(np.dot(tx, w))
 
     return w, loss
 
@@ -126,3 +128,18 @@ def reg_logistic_regression(y, tx, lambda_, initial_w, max_iters, gamma):
     :return: `(w, loss)`, with `w` the last weight vector of the method, and `loss` the corresponding loss value (cost function).
     """
     w = initial_w
+    for n_iter in range(max_iters):
+        # computer gradient and loss
+        y_pred = sigmoid_array(np.dot(tx, w))
+
+        error = y - y_pred
+        grad = -tx.T.dot(error) / len(error)
+        loss = compute_loss(y, tx, w)
+
+        # update w by gradient
+        w = w - gamma * grad
+
+        print("Gradient Descent({bi}/{ti}): loss={l}, w0={w0}, w1={w1}".format(bi=n_iter, ti=max_iters - 1, l=loss,
+                                                                               w0=w[0], w1=w[1]))
+
+    return w, loss
