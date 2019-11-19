@@ -30,6 +30,7 @@
     - Prochaines étapes :
         - Il faut explorer le site AbandonMag (https://abandonware-magazines.org/) pour explorer quelques magazines, et trouver le type de corpus que l'on souhaite.
         - Il faut ensuite réfléchir à notre corpus, puis à notre problématique.
+- Mise en place structure initiale repo.
 
 ## 2019.11.15
 - "But du jeu technique" : "classifier tous les éléments d'un magazine en étant le plus fin possible"
