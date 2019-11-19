@@ -1,5 +1,29 @@
 # LOGBOOK
 
+## 2019.11.19
+### Yannick
+- "Donc en effet, vous allez construire la problématique en croisant les idées de Magalie avec les miennes avec ce qui vous branche en général. Pour ça, je vous recommande d'aller flâner un peu dans les pages de ces magazines, de vous y perdre quelques heures. Certains magazines sont beaucoup plus célèbres que d'autres, mais ce peut aussi être l'occasion de faire une analyse de la presse de seconde zone. Tout est possible, depuis l'exploratoire (où la problématique devient surtout axée méthodo) à la véritable question de recherche en sciences humaines (où la méthodologie n'est plus une finalité)."
+- "Essayez d'avoir une piste aujourd'hui ou demain, et d'avoir une idée claire d'ici la fin de la semaine ;-)"
+- Lecture obligatoire: https://orbi.uliege.be/bitstream/2268/215516/1/DozoKrywickiArmandColin.pdf
+- Lecture recommandée: https://goutarcade.hypotheses.org/80
+- Attention, pas tous les titres sont correctement scannés/trouvables.
+
+### Stache
+- Après m'être un peu baladé sur AbandonWareMag, il s'est avéré que pamal de "morceaux choisis" n'étaient pas forcément complets... Donc, pas forcément facile à traiter
+- En revanche, parmi certaines collection, c'est chouette, car il est possible de bien s'amuser !
+- Il sera par contre peut-être difficile de réaliser des études sur des magazines "récents", dans le sens que, soit le copyhammer est présent, soit le magazine n'est pas encore disponible en ligne
+- Quelque chose qui resort, c'est qu'au niveau des publicités, ce qui prime, c'est la pleine page
+- Un truc qui pourrait être intéressant à étudier, c'est de voir la "place" de la publicité. Plutôt au début ? Plutôt à la fin ? La quantité ? etc
+- Donc voilà, est-ce que quelque chose dans la veine de "De l'évolution de la place de la publicité dans la presse spécialisée des années 90 aux années 2010" vous irait ?
+- (Place littérale comme figurée, donc)
+- *Pourquoi cette période ?*
+    - Compliqué de trouver des références que l'on peut suivre.
+    - Après 2010, soit copystrike, soit pas d'exemplaire.
+    - Comme cas d'études, on peut par exemple utiliser "Player One" ou "Joystick".
+- *Pourquoi la place ?*
+    - "Type" de publicité est assez standardisé, avec une (deux) pleine(s) page(s), pas régulièrement des encarts spécifiques, et semble typé.
+- Notre partie "ML" serait la classification "Pub"/"Pas pub", et notre partie "ADA" serait la place de ladite pub.
+
 ## 2019.11.18
 - Choix du format à définir (xml ? json ?)
 - *Discussion avec Yannick*
