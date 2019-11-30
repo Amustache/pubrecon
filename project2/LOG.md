@@ -7,7 +7,41 @@
     - Script de conversion créé sous la forme d'un notebook.
 - Une fois les datas exploitables, il faut... les exploiter.
 
-**TODO**
+## 2019.11.26
+### Discussion avec Yannick
+- Faire attention au niveau de la chronographie
+- Pas même classification suivant la période
+- Regarder dans le zip préliminaire
+- Ce que l'on a c'est une hypothèse préliminaire, changement de direction car pas obligation
+- Attente mutuelle
+- Prochaines étapes :
+    - Reconnaissance des datas
+    - Identifier le corpus
+    - Toy modèle
+    - Voir ce que ça donne
+- Prévoir un calendrier des étapes
+- Vérifier ce que l'on a le droit de réutiliser dans le cadre du cours
+- Avoir un premier proto
+- Iterer sur les erreurs
+
+## 2019.11.25
+- Réception des premières datas 🎉
+
+## 2019.11.24
+- Objectifs de la semaine prochaine (proposé) :
+    - Commencer et bien avancer le rapport.
+    - Travailler sur le modèle proposé cf. https://www.analyticsvidhya.com/blog/2018/11/implementation-faster-r-cnn-python-object-detection/.
+    - Etudier et comparer d'autres modèles.
+
+## 2019.11.21
+- Il faut réduire le corpus.
+- Magalie: "Si on prend par exemple Tilt, Joystick hebdo, Joystick (que j'avais très bizarremet oublié dans la bdd) et Gen4 sur 88-98 sans les hors-séries on a 326 numéros numérisés (il manque 3 Gen4), avec une trentaine de numéros à labelliser avec 15/20 classes en comptant 120 pages en moyenne  j'aurai 3600 pages à labelliser, ce qui devrait me prendre une semaine je pense"
+- 
+
+## 2019.11.20
+- Arrêt de la problématique technique: Classification du contenu de pages de magazines.
+- Arrêt de la problématique de recherche: La _place_ (physique et conceptuelle) de la publicité dans les magazines de jeu vidéo.
+    - Possibilité d'ouverture : La place du contenu éditorial par rapport à la publicité.
 
 ## 2019.11.19
 ### Yannick
