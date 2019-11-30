@@ -6,6 +6,12 @@
 - L'idée est de réaliser une dataframe pandas pour faciliter l'exploitation, puis de sauvegarder le fichier sous forme de pickle réutilisable. Il faut ainsi créer un script de conversion.
     - Script de conversion créé sous la forme d'un notebook.
 - Une fois les datas exploitables, il faut... les exploiter.
+    - En gros, utiliser https://github.com/kbardool/keras-frcnn.
+        - **Note** Un trick que j'ai appris c'est d'exploiter un modèle déjà existant, de "couper" les derniers layers, et de retrain juste sur ces derniers layers. 'peut nous faire gagner du temps.
+        
+# 2019.12.01
+- Travail sur l'implémentation de keras-frcnn.
+- Il nous reste moins de trois semaines, y'a du taf.
 
 ## 2019.11.26
 ### Discussion avec Yannick
