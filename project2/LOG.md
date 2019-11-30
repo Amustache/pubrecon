@@ -1,5 +1,14 @@
 # LOGBOOK
 
+## 2019.11.30
+- Exploration des datas.
+- Les inputs nous sont données sous format XML. Il faut donc réaliser une conversion préliminaire XML > Format que l'on souhaite.
+- L'idée est de réaliser une dataframe pandas pour faciliter l'exploitation, puis de sauvegarder le fichier sous forme de pickle réutilisable. Il faut ainsi créer un script de conversion.
+    - Script de conversion créé sous la forme d'un notebook.
+- Une fois les datas exploitables, il faut... les exploiter.
+
+**TODO**
+
 ## 2019.11.19
 ### Yannick
 - "Donc en effet, vous allez construire la problématique en croisant les idées de Magalie avec les miennes avec ce qui vous branche en général. Pour ça, je vous recommande d'aller flâner un peu dans les pages de ces magazines, de vous y perdre quelques heures. Certains magazines sont beaucoup plus célèbres que d'autres, mais ce peut aussi être l'occasion de faire une analyse de la presse de seconde zone. Tout est possible, depuis l'exploratoire (où la problématique devient surtout axée méthodo) à la véritable question de recherche en sciences humaines (où la méthodologie n'est plus une finalité)."
