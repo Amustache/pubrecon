@@ -1,4 +1,9 @@
 # LOGBOOK
+        
+## 2019.12.01
+- Travail sur l'implémentation de keras-frcnn.
+- Il nous reste moins de trois semaines, y'a du taf.
+- Je vais tenter de terminer l'implémentation du modèle pré-existant. Derrière, il faudra le réimplémenter par nous-même si ça fonctionne.
 
 ## 2019.11.30
 - Exploration des datas.
@@ -8,10 +13,6 @@
 - Une fois les datas exploitables, il faut... les exploiter.
     - En gros, utiliser https://github.com/kbardool/keras-frcnn.
         - **Note** Un trick que j'ai appris c'est d'exploiter un modèle déjà existant, de "couper" les derniers layers, et de retrain juste sur ces derniers layers. 'peut nous faire gagner du temps.
-        
-# 2019.12.01
-- Travail sur l'implémentation de keras-frcnn.
-- Il nous reste moins de trois semaines, y'a du taf.
 
 ## 2019.11.26
 ### Discussion avec Yannick
