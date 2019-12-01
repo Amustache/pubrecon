@@ -8,6 +8,9 @@
 - **Note** Selon les implémentations, les bndboxes ne sont pas définies de la même manières (soit par position relative (pixels) soit c'est mappé sur [0;1]).
 - A priori, notre travail est """exclusif""", dans le sens on n'a pas connaissance de travail similaire.
     - https://www.konbini.com/fr/inspiration-2/30ans-publicites-jeux-video/.
+- Le rapport a été bien avancé avec les "grosses parties" présentes.
+- **Note** Lors de la comparaison des résultats, il faudra bien faire attention d'utiliser les mêmes méthodes d'évaluation que dans le paper d'origine.
+    - Paper en question: https://papers.nips.cc/paper/5638-faster-r-cnn-towards-real-time-object-detection-with-region-proposal-networks.pdf
 
 ## 2019.11.30
 - Exploration des datas.
