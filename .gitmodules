@@ -1,0 +1,3 @@
+[submodule "project2/keras-frcnn"]
+	path = project2/keras-frcnn
+	url = https://github.com/kbardool/keras-frcnn.git
