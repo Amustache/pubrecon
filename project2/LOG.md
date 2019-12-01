@@ -4,7 +4,8 @@
 - Travail sur l'implémentation de keras-frcnn.
 - Il nous reste moins de trois semaines, y'a du taf.
 - Je vais tenter de terminer l'implémentation du modèle pré-existant. Derrière, il faudra le réimplémenter par nous-même si ça fonctionne.
-        - Ajout de `https://github.com/kbardool/keras-frcnn.git` comme submodule.
+    - Ajout de `https://github.com/kbardool/keras-frcnn.git` comme submodule.
+- **Note** Selon les implémentations, les bndboxes ne sont pas définies de la même manières (soit par position relative (pixels) soit c'est mappé sur [0;1]).
 
 ## 2019.11.30
 - Exploration des datas.
