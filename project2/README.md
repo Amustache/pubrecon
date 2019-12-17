@@ -35,7 +35,7 @@ project/
 1. (Optional) Create a new environment (e.g. `conda create --name pubrecon python=3.7 -y`, cf. [Conda](https://conda.io)) and activate it (e.g. `conda activate pubrecon`).
 2. Run `pip install --upgrade pip`.
 3. Install the package using `pip install -e /root/of/the/repo/`.
-    - This will install several packages, namely `mathplotlib`, `tensorflow`, `opencv-python`, `opencv-contrib-python`, `keras`, `numpy`, `tqdm`, `pandas`, `sklearn`.
+    - This will install several packages, namely `matplotlib`, `tensorflow`, `opencv-python`, `opencv-contrib-python`, `keras`, `numpy`, `tqdm`, `pandas`, `sklearn`.
 4. Grab  some coffee.
 5. You can now use **pubrecon**.
 
