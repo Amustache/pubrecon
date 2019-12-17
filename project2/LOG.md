@@ -1,4 +1,55 @@
 # LOGBOOK
+
+## 2019.12.17
+- Travail sur le rapport.
+- Travail sur le packaging.
+
+## 2019.12.16
+- Travail sur le rapport.
+- Travail sur le packaging.
+
+## 2019.12.15
+- "Je _crois_ que j'ai un truc qui fonctionne."
+- (Petit/Gros) Résumé :
+    - Je commence par récupérer toutes les photos/labels et je les mets dans une dataframe pandas. Je sauvegarde le tout pour pas se faire ***** à chaque fois.
+    - Pour chaque image, je récupère des "areas of interest" avec le selective search de cv2.
+    - A partir de ces aoi, je compare avec le ground truth ("les vrais labels") pour voir si ça colle suivant un threeshold. Si c'est le cas, on l'ajoute à notre liste de labels, sinon, c'est du background.
+    - Ensuite, je construis mon modèle. VGG16 pretrained avec des poids de ImageNet, puis je pars du principe que mon réseau est déjà entrainé correctement (flaw: on a pas mal de texte, donc pas forcément que des images), donc je ne réentraine que les derniers layers.
+    - Ensuite, ça part en entrainement, avec 10% de tests.
+    - "Pour être honnête j'utilise un RCNN car j'ai réussi à le faire fonctionner, et VGG dans la structure du RCNN car c'est disponible ^^" - https://www.quora.com/What-is-the-VGG-neural-network
+- Totalité des données disponibles: environ 4Go.
+    - Par contre du coup c'est la mort pour le learning, y'a bien trop de données et pas assez de RAM.
+    - Réflexion pour utiliser Google Collab ou Google Cloud.
+    - Utiliser du Python "pur" au lieu du Notebook.
+    - Optimiser la structure, particulièrement le selective search.
+- Début du packaging.
+
+## 2019.12.13
+- Une présentation "finale" est possible, cela peut être cool d'y aller.
+
+## 2019.12.10
+- Objectifs :
+    - Terminer le modèle, de l'entraîner sur Gen4.
+    - Avancer le rapport.
+
+## 2019.12.09
+- Gen4 entièrement labélisé et disponible.
+- ResNet fonctionnel disponible, mais à tester.
+- "Je note ça là sinon je vais oublier : il faudra parler du fait que nos données brutes n'ont pas de texte intégré, que des solutions existent, mais que ce n'était pas le but"
+
+## 2019.12.06
+- More data available thanks to Magalie.
+- On va restreindre notre étude sur Gen4, car pas le temps de labéliser plus de trucs.
+
+## 2019.12.04
+- Les classes sont disponibles.
+    - Il faut faire attention de ne pas avoir un truc dépendant du texte, mais seulement du format du texte, car on fait de la reconnaissance d'image, pas de la contextualisation de texte.
+
+## 2019.12.03
+- More data available thanks to Magalie.
+
+## 2019.12.02
+- Il peut être intéressant de contacter Boris Krywicki (Université de Liège).
         
 ## 2019.12.01
 - Travail sur l'implémentation de keras-frcnn.
@@ -11,6 +62,18 @@
 - Le rapport a été bien avancé avec les "grosses parties" présentes.
 - **Note** Lors de la comparaison des résultats, il faudra bien faire attention d'utiliser les mêmes méthodes d'évaluation que dans le paper d'origine.
     - Paper en question: https://papers.nips.cc/paper/5638-faster-r-cnn-towards-real-time-object-detection-with-region-proposal-networks.pdf
+- On a le p'tit script de conversion pour adapter les XML à nos modèles.
+- On travaille sur le FerRCNN, mais c'est CHAUD.
+- On travaille sur le rapport.
+- Réflexion au niveau des classes.
+    - Au niveau des classes, j'ai p't'être un peu peur que ce soit trop large, mais aucune idée
+    - Like, on va peut-être devoir sélectionner un sous-groupe des classes que tu as proposé
+    - Plus la redondance, si t'as une classe trop "large" (=publicité pleine page) sachant que le but c'est reconnaître une publicité, ben, le learning risque d'avoir du mal
+    - Le but c'est "Ah, y'a une grosse image et peu de texte => proba(pub) élevée" vs. "Ah, y'a du texte et peu d'image => proba(pub) basse"
+    - Alors que si on a toute la page classifiée comme "c'est une pub", j'ai aucune idée de l'influence
+    - Après, c'est totalement une hypothèse !
+    - Une autre solution qui existe, c'est effectivement de dire "ça c'est pub" "ça c'est pas pub" et de laisser le modèle faire ses propres classes
+    - Idéalement on tente les deux
 
 ## 2019.11.30
 - Exploration des datas.
