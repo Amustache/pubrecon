@@ -71,7 +71,7 @@ class DataFrame:
                     data.append(temp)
 
                 if subsamples != -1:
-                    if subsamples > 0:
+                    if subsamples > 1:
                         subsamples -= 1
                     else:
                         break
@@ -139,6 +139,7 @@ class ImagesData:
         self.images = None
         self.labels = None
         self.classes = []
+        cv2.setUseOptimized(True)
 
     def get_iou(self, bbox_1, bbox_2):
         '''

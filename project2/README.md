@@ -72,9 +72,9 @@ TODO
 
 TODO
 
-## Known bugs
+## Known bugs / TODO
 
-TODO
+- TODO: Save `imagesdata.pickle`.
 
 ## Acknowledgments
 

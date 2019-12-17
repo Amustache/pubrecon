@@ -37,7 +37,7 @@ class RCNN:
         self.hist = None
         self.classes = []
 
-        self.ss = None
+        cv2.setUseOptimized(True)
 
         if model_and_weights_path is None:
             # Import pretrained original VGG16 model with ImageNet weights
@@ -72,7 +72,10 @@ class RCNN:
             self.model.compile(loss=self.loss, optimizer=self.opt, metrics=["accuracy"])
 
         if verbose:
-            print(self.model.summary())
+            self.summary()
+
+    def summary(self):
+        print(self.model.summary())
 
     def save_model(self, model_and_weights_path):
         # Serialize and save model
@@ -149,29 +152,34 @@ class RCNN:
     def history(self):
         return self.hist.history
 
-    def test_image(self, id, show_infos=False, show_labels=False, number_of_results=2500, threshold=0.85, verbose=1):
-        if self.ss is None:
-            self.ss = cv2.ximgproc.segmentation.createSelectiveSearchSegmentation()
-            cv2.setUseOptimized(True)
-            self.ss.switchToSelectiveSearchFast()
+    def test_image(self, id=None, path=None, show_infos=False, show_labels=False, number_of_results=2500, threshold=0.85, verbose=1):
+        if id and path:
+            raise ValueError("Error: Cannot have `id` and `path` at the same time.")
+        elif id:
+            sample_row = self.ImageData.files.iloc[id]
+            sample_file = sample_row['file_name']
+            sample_data = self.ImageData.df.loc[self.ImageData.df['file_name'] == sample_file]
 
-        sample_row = self.ImageData.files.iloc[id]
-        sample_file = sample_row['file_name']
-        sample_data = self.ImageData.df.loc[self.ImageData.df['file_name'] == sample_file]
+            if show_infos:
+                print(sample_data)
 
-        if show_infos:
-            print(sample_data)
+            if show_labels:
+                self.ImageData.show_image(id, show_infos=False, show_labels=True)
+        elif path:
+            sample_file = path
+        else:
+            raise ValueError("Error: Must have `id` or `path`.")
 
-        if show_labels:
-            self.ImageData.show_image(id, show_infos=False, show_labels=True)
+        ss = cv2.ximgproc.segmentation.createSelectiveSearchSegmentation()
 
         img = cv2.imread(sample_file)
         plt.figure(figsize=(18, 16))
         plt.subplot(1, 2, 1)
         plt.imshow(img)
 
-        self.ss.setBaseImage(img)
-        ss_results = self.ss.process()
+        ss.setBaseImage(img)
+        ss.switchToSelectiveSearchFast()
+        ss_results = ss.process()
         img_out = img.copy()
 
         for e, result in enumerate(tqdm(ss_results, disable=(verbose != 2))):
