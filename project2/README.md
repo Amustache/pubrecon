@@ -33,6 +33,7 @@ project/
 1. Create a new environment (e.g. `conda create --name pubrecon python=3.7 -y`, cf. [Conda](conda.io)) and activate it (e.g. `conda activate pubrecon`).
 2. Run `pip install --upgrade pip`.
 3. Install the package using `pip install -e /root/of/the/repo/`.
+    - This will install several packages, namely `tensorflow`, `opencv-python`, `opencv-contrib-python`, `keras`, `numpy`, `tqdm`, `pandas`, `sklearn`.
 4. Grab  some coffee.
 5. You can now use **pubrecon**.
 
@@ -58,7 +59,7 @@ Images must be JPEG, and an additional XML file with at least the following fiel
 ```
 Where each annotation (bbox) should have its own `<object>`.
 
-Put all the data in `data/in`. That's it.
+Put all the data in `data/in`. That`s it.
 
 ### Configuration
 
@@ -66,7 +67,7 @@ TODO
 
 ## How to use it?
 
-(Optional) Install [Jupyter](https://jupyter.org/) with `pip install jupyter` for quick prototyping.
+- (Optional) Install [Jupyter](https://jupyter.org/) with `pip install jupyter` for quick prototyping.
 
 ## Contact
 
