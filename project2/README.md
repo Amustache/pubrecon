@@ -8,15 +8,17 @@ Supervised by [Yannick Rochat](yannick.rochat@unil.ch) & [Magalie Vetter](magali
 
 ---
 
-## Introduction
+## 0. Introduction
 
 Our project consists in the recognition of advertisment in French videogame magazines between the 80s and the 2010s. We implemented a R-CNN and worked on the Gen4 magazine for that purpose.
 
 More information can be found in the [projet report](./report/report/report.pdf).
 
-## Installation
+Please follow this `README.md` to make the package work.
 
-### Structure
+## 1. Installation
+
+### 1a. Structure
 
 We recommand the following structure for your project, which should be the basic example when pulling the repo:
 ```
@@ -28,18 +30,18 @@ project/
     scripts/
 ```
 
-### Packages
+### 1b. Packages
 
-1. Create a new environment (e.g. `conda create --name pubrecon python=3.7 -y`, cf. [Conda](conda.io)) and activate it (e.g. `conda activate pubrecon`).
+1. (Optional) Create a new environment (e.g. `conda create --name pubrecon python=3.7 -y`, cf. [Conda](https://conda.io)) and activate it (e.g. `conda activate pubrecon`).
 2. Run `pip install --upgrade pip`.
 3. Install the package using `pip install -e /root/of/the/repo/`.
-    - This will install several packages, namely `tensorflow`, `opencv-python`, `opencv-contrib-python`, `keras`, `numpy`, `tqdm`, `pandas`, `sklearn`.
+    - This will install several packages, namely `mathplotlib`, `tensorflow`, `opencv-python`, `opencv-contrib-python`, `keras`, `numpy`, `tqdm`, `pandas`, `sklearn`.
 4. Grab  some coffee.
 5. You can now use **pubrecon**.
 
-## Preparation and configuration
+## 2. Preparation and configuration
 
-### Data preparation
+### 2a. Data preparation
 
 Images must be JPEG, and an additional XML file with at least the following fields should be found as well:
 ```
@@ -61,21 +63,45 @@ Where each annotation (bbox) should have its own `<object>`.
 
 Put all the data in `data/in`. That`s it.
 
-### Configuration
+### 2b. Configuration
+
+
+
+## 3. How to use it?
+
+Select one of the following options to use the package.
+
+### 3a. Jupyter Notebook
+
+- (Optional) Install [Jupyter](https://jupyter.org/) with `pip install jupyter` for quick prototyping.
+- You can use [this worked example](./notebooks/3.%20Worked%20example.ipynb).
+
+### 3b. `run.py`
 
 TODO
 
-## How to use it?
+### 3c. Go wild
 
-- (Optional) Install [Jupyter](https://jupyter.org/) with `pip install jupyter` for quick prototyping.
+Use the files of your choices and follow these steps:
+1. Import the revelant classes using `from pubrecon.data import DataFrame, ImagesData` and `from pubrecon.model import RCNN`.
+3. Define a [`DataFrame`](./pubrecon/data.py#L11), then use `prepare_data`.
+4. Define a [`ImagesData`](./pubrecon/data.py#L123), then use `prepare_images_and_labels`.
+5. Define a [`RCNN`](./pubrecon/model.py#L20), `train` it and check its metrics with `history`.
+6. Finally, use the model's `test_image` to labelize a new page.
 
 ## Contact
 
-TODO
+Basically [contact me on Telegram](https://t.me/Stache).
 
 ## Known bugs / TODO
 
-- TODO: Save `imagesdata.pickle`.
+### Bugs
+
+- 🎐
+
+### TODOs
+
+- Save `imagesdata.pickle`.
 
 ## Acknowledgments
 
