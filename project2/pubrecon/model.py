@@ -1,3 +1,5 @@
+import numpy as np
+
 from keras import Model
 from keras import optimizers, losses
 from keras.applications.vgg16 import VGG16
@@ -26,6 +28,7 @@ class RCNN:
             self.opt = opt
 
         self.hist = None
+        self.classes = []
 
         # Import pretrained original VGG16 model with ImageNet weights
         vggmodel = VGG16(weights='imagenet', include_top=True)  # https://keras.io/applications/
@@ -68,8 +71,9 @@ class RCNN:
 
         chosen_binarizer = MyLabelBinarizer()
         train_labels_fit = chosen_binarizer.fit_transform(self.ImageData.labels)
+        self.classes = chosen_binarizer.classes_
         if verbose == 2:
-            print(chosen_binarizer.classes_)
+            print(self.classes)
 
         # Test and train set, yay.
         X_train, X_test, y_train, y_test = train_test_split(self.ImageData.images, train_labels_fit, test_size=split_size)
@@ -102,3 +106,12 @@ class RCNN:
         self.hist = self.model.fit_generator(generator=train_data,
                                              steps_per_epoch=steps, epochs=epochs, verbose=1, validation_data=test_data,
                                              validation_steps=steps, callbacks=[checkpoint, early])
+
+    def predict(self, img):
+        return self.model.predict(np.expand_dims(img, axis=0))
+
+    def guess(self, img):
+        predicts = self.predict(img)
+        guess = self.classes[predicts.argmax()]
+        proba = predicts.max()
+        return guess, proba
