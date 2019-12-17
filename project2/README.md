@@ -65,7 +65,7 @@ Put all the data in `data/in`. That`s it.
 
 ### 2b. Configuration
 
-
+Configuration happens in the [`config.cfg`](./config.cfg) file. You can load it using ???.
 
 ## 3. How to use it?
 
