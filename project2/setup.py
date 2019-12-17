@@ -16,7 +16,8 @@ setuptools.setup(name='pubrecon',
                  long_description_content_type="text/markdown",
                  url='http://github.com/AMustache/ML-2019/project2/',
                  packages=setuptools.find_packages(),
-                 install_requires=['cv2', 'keras', 'numpy', 'tqdm', 'pandas', 'sklearn'],
+                 install_requires=['tensorflow', 'opencv-python', 'opencv-contrib-python', 'keras', 'numpy', 'tqdm', 'pandas', 'sklearn'],
                  include_package_data=True,
-                 zip_safe=False
+                 zip_safe=False,
+                 python_requires='>=3.7',
                  )
