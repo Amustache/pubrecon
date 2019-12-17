@@ -178,6 +178,10 @@ class ImagesData:
         # https://www.learnopencv.com/selective-search-for-object-detection-cpp-python/
         ss = cv2.ximgproc.segmentation.createSelectiveSearchSegmentation()
 
+        # Images and labels
+        test_images = []
+        test_labels = []
+
         # Loop over each image
         for index, row in tqdm(self.files.iterrows(), total=self.DataFrame.get_num_files(),
                                desc="Iterating through files...", disable=(not verbose)):
@@ -202,10 +206,6 @@ class ImagesData:
             # Iterate over the first N results of selective search
             # Calculate IOU of proposed region and annoted region
             used = False  # Check if that bbox is used as a class example
-
-            # Images and labels
-            test_images = []
-            test_labels = []
 
             # For each rectangle in the results of selective search
             for i, rect in enumerate(tqdm(rects, desc="Iterating through rectangles...", leave=False,
