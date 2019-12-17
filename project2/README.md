@@ -30,7 +30,7 @@ project/
 
 ### Packages
 
-1. Create a new environment (e.g. `conda create --name pubrecon python=3.7 -y`, cf. [Conda](conda.io)) and activate it (e.g. `conda activate pubrecon`).
+1. (Optional) Create a new environment (e.g. `conda create --name pubrecon python=3.7 -y`, cf. [Conda](conda.io)) and activate it (e.g. `conda activate pubrecon`).
 2. Run `pip install --upgrade pip`.
 3. Install the package using `pip install -e /root/of/the/repo/`.
 4. Grab  some coffee.
@@ -66,8 +66,10 @@ TODO
 
 ## How to use it?
 
-(Optional) Install [Jupyter](https://jupyter.org/) with `pip install jupyter` for quick prototyping.
-
+- (Optional) Install [Jupyter](https://jupyter.org/) with `pip install jupyter` for quick prototyping.
+    - You can use [this worked example](./notebooks/3.\ Worked\ example.ipynb), too!
+- 
+    
 ## Contact
 
 TODO
