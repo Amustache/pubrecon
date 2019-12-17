@@ -17,6 +17,8 @@ class DataFrame:
         self.data_path = data_path
         if pickle_path is None:
             self.pickle_path = os.path.join(data_path, 'dataframe.pickle')
+        else:
+            self.pickle_path = pickle_path
         self.df = None
         self.files = None
         self.classes = None
@@ -114,8 +116,11 @@ class ImagesData:
         self.files = self.DataFrame.files
         if pickle_path is None:
             self.pickle_path = os.path.join(self.DataFrame.data_path, 'imagesdata.pickle')
+        else:
+            self.pickle_path = pickle_path
         self.images = np.array([])
         self.labels = np.array([])
+        self.classes = []
 
     def get_iou(self, bbox_1, bbox_2):
         '''
@@ -204,3 +209,11 @@ class ImagesData:
                         classes_counter['background'] += 1
                 else:
                     break
+
+        self.classes = list(set(self.labels))
+
+    def get_num_samples(self):
+        return self.images.shape[0]
+
+    def get_num_classes(self):
+        return len(self.classes)
