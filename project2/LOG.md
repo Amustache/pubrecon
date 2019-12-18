@@ -20,6 +20,7 @@
         - [do preprocessing]
         - you do not compare any models
         - you do not have baselines (=What is the hypothesis?)
+- Ajout du mode batch pour accélérer le modèle.
 
 ## 2019.12.17
 - Travail sur le rapport.
