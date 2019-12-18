@@ -18,6 +18,8 @@ Please follow this `README.md` to make the package work.
 
 ## 1. Installation
 
+We assume that you have Python 3.7+ and Pip 19.3+ installed and working. You may experience issues if it is not the case.
+
 ### 1a. Structure
 
 We recommend the following structure for your project, which should be the basic example when pulling the repo:
