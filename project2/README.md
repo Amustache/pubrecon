@@ -97,11 +97,13 @@ Basically [contact me on Telegram](https://t.me/Stache).
 
 ### Bugs
 
-- 🎐
+- If `tensorflow-gpu` is installed on the same environment, the model does not work.
+- Suboptimal utilisation of RAM.
 
 ### TODOs
 
 - Save `imagesdata.pickle`.
+- Use GPU.
 
 ## Acknowledgments
 
