@@ -43,6 +43,8 @@ project/
 
 ### 2a. Data preparation
 
+The annotation tool used is [LabelImg](https://github.com/tzutalin/labelImg). They are saved as XML files in PASCAL VOC format, the format used by ImageNet, which coincidentally is the basis for our weights.
+
 Images must be JPEG, and an additional XML file with at least the following fields should be found as well:
 ```
 <annotation verified="yes">
@@ -65,9 +67,9 @@ Put all the data in `data/in`. That`s it.
 
 ### 2b. Configuration
 
-Configuration happens in the [`config.cfg`](./config.cfg) file. You can load it using ???.
+Configuration happens in the [`config.cfg`](./config.cfg) file. ~~You can load it using ???~~ Simply copy/paste it at the beginning of your project if needed.
 
-## 3. How to use it?
+## 3. How to use?
 
 Select one of the following options to use the package.
 
@@ -104,6 +106,7 @@ Basically [contact me on Telegram](https://t.me/Stache).
 
 - Save `imagesdata.pickle`.
 - Use GPU.
+- Real Config thing-ly.
 
 ## Acknowledgments
 
