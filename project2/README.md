@@ -68,6 +68,8 @@ Where each annotation (bbox) should have its own `<object>`.
 
 Put all the data in `data/in`. That`s it.
 
+**Tip**: You can find some labelled data [here](https://drive.google.com/drive/folders/1pi9p1SybvlIZ3qT85SlPLmxzexusPgNT?usp=sharing)!
+
 ### 2b. Configuration
 
 Configuration happens in the [`config.cfg`](./config.cfg) file. ~~You can load it using ???~~ Simply copy/paste it at the beginning of your project if needed.
