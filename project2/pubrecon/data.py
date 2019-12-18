@@ -9,6 +9,9 @@ import matplotlib.pyplot as plt
 
 
 class DataFrame:
+    '''
+    DataFrame object contains condensed informations from the annotations.
+    '''
     def __init__(self, data_path, pickle_path=None):
         '''
         Define a new DataFrame.
@@ -121,6 +124,9 @@ class DataFrame:
 
 
 class ImagesData:
+    '''
+    ImagesData contains samples of training data from the images.
+    '''
     def __init__(self, DataFrame, pickle_path=None):
         '''
         Defines a new Images Data.
@@ -261,10 +267,19 @@ class ImagesData:
         return len(self.classes)
 
     def summary(self):
+        '''
+        Print a nice little summary of the ImagesData.
+        '''
         print("We have {} samples for {} classes.".format(self.get_num_samples(), self.get_num_classes()))
         print(self.classes)
 
     def show_image(self, id, show_infos=False, show_labels=False):
+        '''
+        Show an image of the set along with its informations.
+        :param id: ID of the image in the dataset.
+        :param show_infos: If True, will show informations about the image in the dataset.
+        :param show_labels: If True, will show the annotated image along with the "naked" one.
+        '''
         sample_row = self.files.iloc[id]
         sample_file = sample_row['file_name']
         sample_data = self.df.loc[self.df['file_name'] == sample_file]

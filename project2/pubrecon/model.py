@@ -15,10 +15,18 @@ from keras.models import model_from_json
 
 from sklearn.preprocessing import LabelBinarizer
 from sklearn.model_selection import train_test_split
+from tensorflow import set_random_seed
 
 
 class RCNN:
-    def __init__(self, ImageData, model_and_weights_path=None, loss=None, opt=None, lr=0.001, verbose=1):
+    '''
+    Define a new R-CNN.
+    '''
+    def __init__(self, ImageData, model_and_weights_path=None, loss=None, opt=None, lr=0.001, seed=None, verbose=1):
+        if seed is not None:
+            np.random.seed(seed)
+            set_random_seed(seed)
+
         self.ImageData = ImageData
         if ImageData.get_num_samples() == 0 or ImageData.get_num_classes() == 0:
             print("Warning: ImagesData is empty.")
@@ -85,7 +93,7 @@ class RCNN:
         # Serialize and save weights
         self.model.save_weights(os.path.join(model_and_weights_path, "weights.h5"))
 
-    def train(self, epochs=100, split_size=0.10, checkpoint_path=None, early_stopping=True, verbose=1):
+    def train(self, epochs=100, batch_size=32, split_size=0.10, checkpoint_path=None, early_stopping=True, verbose=1):
         # One-hot encoding: Basically "unique-fy-ish" each class.
         # https://hackernoon.com/what-is-one-hot-encoding-why-and-when-do-you-have-to-use-it-e3c6186d008f
         class MyLabelBinarizer(LabelBinarizer):
@@ -117,9 +125,9 @@ class RCNN:
         # This may not be needed following some magazines, as we do not often have rotated texts...
         # ... Or do we? Anyway it applies for the pictures so there's that.
         imgdatagen = ImageDataGenerator(horizontal_flip=True, vertical_flip=True, rotation_range=90)
-        train_data = imgdatagen.flow(x=X_train, y=y_train)
+        train_data = imgdatagen.flow(x=X_train, y=y_train, batch_size=batch_size)
         imgdatagen = ImageDataGenerator(horizontal_flip=True, vertical_flip=True, rotation_range=90)
-        test_data = imgdatagen.flow(x=X_test, y=y_test)
+        test_data = imgdatagen.flow(x=X_test, y=y_test, batch_size=batch_size)
 
         # We want checkpoints because losing training suckz lolz. https://keras.io/callbacks/#modelcheckpoint
         if checkpoint_path is not None:
@@ -135,10 +143,12 @@ class RCNN:
             early = None
 
         # FINALLY train the model. https://keras.io/models/sequential/#fit_generator
-        steps = ceil(len(train_data) / len(chosen_binarizer.classes_))
-        self.hist = self.model.fit_generator(generator=train_data,
-                                             steps_per_epoch=steps, epochs=epochs, verbose=1, validation_data=test_data,
-                                             validation_steps=steps, callbacks=[checkpoint, early])
+        steps = ceil(len(train_data) / batch_size)
+        self.hist = self.model.fit_generator(generator=train_data, steps_per_epoch=steps, epochs=epochs, verbose=1,
+                                             validation_data=test_data, validation_steps=steps,
+                                             callbacks=[checkpoint, early])
+
+        return self.hist, self.model
 
     def predict(self, img):
         return self.model.predict(np.expand_dims(img, axis=0))

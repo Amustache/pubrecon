@@ -3,6 +3,9 @@ from configparser import ConfigParser
 
 
 class Config:
+    '''
+    TODO
+    '''
     def __init__(self):
         self.config = ConfigParser()
         current_dir = os.path.dirname(os.path.realpath(__file__))

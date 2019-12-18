@@ -18,6 +18,8 @@ Please follow this `README.md` to make the package work.
 
 ## 1. Installation
 
+We assume that you have Python 3.7+ and Pip 19.3+ installed and working. You may experience issues if it is not the case.
+
 ### 1a. Structure
 
 We recommend the following structure for your project, which should be the basic example when pulling the repo:
@@ -65,6 +67,8 @@ Images must be JPEG, and an additional XML file with at least the following fiel
 Where each annotation (bbox) should have its own `<object>`.
 
 Put all the data in `data/in`. That`s it.
+
+**Tip**: You can find some labelled data [here](https://drive.google.com/drive/folders/1pi9p1SybvlIZ3qT85SlPLmxzexusPgNT?usp=sharing)!
 
 ### 2b. Configuration
 
