@@ -22,7 +22,7 @@ class RCNN:
     '''
     Define a new R-CNN.
     '''
-    def __init__(self, ImageData, model_and_weights_path=None, loss=None, opt=None, lr=0.001, verbose=1, seed=None):
+    def __init__(self, ImageData, model_and_weights_path=None, loss=None, opt=None, lr=0.001, seed=None, verbose=1):
         if seed is not None:
             np.random.seed(seed)
             set_random_seed(seed)
