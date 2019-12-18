@@ -1,8 +1,34 @@
 # LOGBOOK
 
+## 2019.12.18
+- Test du modèle sur un autre ordinateur. On se rend compte que si tensorflow-gpu est disponible, le modèle ne fonctionne pas.
+    - cf. https://github.com/matterport/Mask_RCNN/wiki notamment.
+- Nettoyage des notebooks pour ne garder qu'un exemple utile.
+- Fix de dependencies et de typos, ainsi qu'une GROSSE erreur dans le modèle.
+- On laisse tourner le learning "pour voir".
+- Prochaines étapes importantes :
+    - Cross-validation, hyperparameters, toussa.
+    - Tester et retester que le package fonctionne sur un ordinateur lambda.
+    - (Optionnel) Implémenter le GPU (ja-mais on aura le temps).
+    - Dump des liens qui trainent, à lire et à trier : https://pastebin.com/jBDxGhhH (oui c'est long)
+    - ! Terminer le rapport !
+    - Mettre quelques datas disponibles en ligne pour que les gens puissent tester.
+    - Rappel des trucs à améliorer pour le PDF/code d'après le projet 1:
+        - cross-validation is used to tune the hyperparameters
+        - you do not have any test vs train leanring curves
+        - you do not tune the hyperparameters
+        - [do preprocessing]
+        - you do not compare any models
+        - you do not have baselines (=What is the hypothesis?)
+
 ## 2019.12.17
 - Travail sur le rapport.
 - Travail sur le packaging.
+    - Il devrait être terminé.
+- Résultats du modèle pour 100 samples et 10 epochs, 76.6% d'accuracy.
+- Question sur la vitesse.
+    - Il faudrait voir pour optimiser le selective search.
+- Travail sur le côté "tuto".
 
 ## 2019.12.16
 - Travail sur le rapport.
