@@ -18,6 +18,9 @@ from sklearn.model_selection import train_test_split
 
 
 class RCNN:
+    '''
+    Define a new R-CNN.
+    '''
     def __init__(self, ImageData, model_and_weights_path=None, loss=None, opt=None, lr=0.001, verbose=1):
         self.ImageData = ImageData
         if ImageData.get_num_samples() == 0 or ImageData.get_num_classes() == 0:
@@ -139,6 +142,8 @@ class RCNN:
         self.hist = self.model.fit_generator(generator=train_data,
                                              steps_per_epoch=steps, epochs=epochs, verbose=1, validation_data=test_data,
                                              validation_steps=steps, callbacks=[checkpoint, early])
+
+        return self.hist, self.model
 
     def predict(self, img):
         return self.model.predict(np.expand_dims(img, axis=0))
