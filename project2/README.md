@@ -43,6 +43,8 @@ project/
 
 ### 2a. Data preparation
 
+The annotation tool used is [LabelImg](https://github.com/tzutalin/labelImg). They are saved as XML files in PASCAL VOC format, the format used by ImageNet, which coincidentally is the basis for our weights.
+
 Images must be JPEG, and an additional XML file with at least the following fields should be found as well:
 ```
 <annotation verified="yes">
