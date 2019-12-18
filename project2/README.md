@@ -20,7 +20,7 @@ Please follow this `README.md` to make the package work.
 
 ### 1a. Structure
 
-We recommand the following structure for your project, which should be the basic example when pulling the repo:
+We recommend the following structure for your project, which should be the basic example when pulling the repo:
 ```
 project/
     data/
@@ -34,6 +34,7 @@ project/
 
 1. (Optional) Create a new environment (e.g. `conda create --name pubrecon python=3.7 -y`, cf. [Conda](https://conda.io)) and activate it (e.g. `conda activate pubrecon`).
 2. Run `pip install --upgrade pip`.
+3. Clone this repo.
 3. Install the package using `pip install -e /root/of/the/repo/`.
     - This will install several packages, namely `matplotlib`, `tensorflow`, `opencv-python`, `opencv-contrib-python`, `keras`, `numpy`, `tqdm`, `pandas`, `sklearn`.
 4. Grab  some coffee.
