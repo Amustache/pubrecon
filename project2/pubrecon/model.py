@@ -23,6 +23,16 @@ class RCNN:
     Define a new R-CNN.
     '''
     def __init__(self, ImageData, model_and_weights_path=None, loss=None, opt=None, lr=0.001, seed=None, verbose=1):
+        '''
+        R-CNN model.
+        :param ImageData: A non-empty ImageData
+        :param model_and_weights_path: Path where the model should be saved.
+        :param loss: Loss function; Use `None` for `categorical_crossentropy`.
+        :param opt: Optimization function; Use `None` for `Adam`.
+        :param lr: Learning rate.
+        :param seed: Random seed.
+        :param verbose: 0:=no output, 1:=errors only, 2:= everything.
+        '''
         if seed is not None:
             np.random.seed(seed)
             set_random_seed(seed)
@@ -66,7 +76,7 @@ class RCNN:
 
             # Compile the model using Adam optimizer with learning rate of 0.001 by default
             # We are using categorical_crossentropy as loss by default since the output of the model is categorical
-            self.model.compile(loss=self.loss, optimizer=self.opt, metrics=["accuracy"])
+            self.model.compile(loss=self.loss, optimizer=self.opt, metrics=['accuracy'])
         else:
             # Load model
             with open(os.path.join(model_and_weights_path, "model.json"), 'r') as json_model:
@@ -77,15 +87,22 @@ class RCNN:
             self.model.load_weights(os.path.join(model_and_weights_path, "weights.h5"))
 
             # Compile model
-            self.model.compile(loss=self.loss, optimizer=self.opt, metrics=['acc'])
+            self.model.compile(loss=self.loss, optimizer=self.opt, metrics=['accuracy'])
 
         if verbose:
             self.summary()
 
     def summary(self):
+        '''
+        Print a nice little summary of the RCNN.
+        '''
         print(self.model.summary())
 
     def save_model(self, model_and_weights_path):
+        '''
+        Saves the model.
+        :param model_and_weights_path: Path.
+        '''
         # Serialize and save model
         with open(os.path.join(model_and_weights_path, "model.json"), "w") as json_file:
             json_file.write(self.model.to_json())
@@ -94,6 +111,16 @@ class RCNN:
         self.model.save_weights(os.path.join(model_and_weights_path, "weights.h5"))
 
     def train(self, epochs=100, batch_size=32, split_size=0.10, checkpoint_path=None, early_stopping=True, verbose=1):
+        '''
+        Train the model on the given data.
+        :param epochs: Number of epochs.
+        :param batch_size: Number of samples per batch.
+        :param split_size: Test/Train proportion.
+        :param checkpoint_path: Path where to save the checkpoints.
+        :param early_stopping: Boolean, should we use early stopping if no progress is made.
+        :param verbose: 0:=no output, 1:=errors only, 2:= everything.
+        :return: `hist`, `model`, The metrics history and the model.
+        '''
         # One-hot encoding: Basically "unique-fy-ish" each class.
         # https://hackernoon.com/what-is-one-hot-encoding-why-and-when-do-you-have-to-use-it-e3c6186d008f
         class MyLabelBinarizer(LabelBinarizer):
@@ -148,18 +175,41 @@ class RCNN:
         return self.hist, self.model
 
     def predict(self, img):
+        '''
+        :param img: Sample to test.
+        :return: Predictions, which is an array.
+        '''
         return self.model.predict(np.expand_dims(img, axis=0))
 
     def guess(self, img):
+        '''
+        Say which class it is.
+        :param img: Sample to test.
+        :return: Class and its probability.
+        '''
         predicts = self.predict(img)
         guess = self.classes[predicts.argmax()]
         proba = predicts.max()
         return guess, proba
 
     def history(self):
+        '''
+        :return: The metrics history.
+        '''
         return self.hist.history
 
-    def test_image(self, id=None, path=None, show_infos=False, show_labels=False, number_of_results=2500, threshold=0.85, verbose=1):
+    def test_image(self, id=None, path=None, show_infos=False, show_labels=False, number_of_results=2500,
+                   threshold=0.85, verbose=1):
+        '''
+        Test a whole page to labelize it.
+        :param id: ID of the image in the dataset.
+        :param path: Path of an unknown image (outside of dataset).
+        :param show_infos: If True, will show informations about the image in the dataset.
+        :param show_labels: If True, will show the annotated image along with the "naked" one.
+        :param number_of_results: How many rectangles should be processed.
+        :param threshold: Precision for the IOU test - 1.0 is a perfect match.
+        :param verbose: 0:=no output, 1:=errors only, 2:= everything.
+        '''
         if id and path:
             raise ValueError("Error: Cannot have `id` and `path` at the same time.")
         elif id:
