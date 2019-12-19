@@ -1,3 +1,3 @@
 from .data import DataFrame, ImagesData
 from .model import RCNN
-from .hyper import Hyper
+# from .hyper import Hyper
