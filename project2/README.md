@@ -6,6 +6,8 @@ Project by [Hugo "Stache" Hueber](mailto:hugo.hueber@epfl.ch) & [Florine Réau](
 
 Supervised by [Yannick Rochat](yannick.rochat@unil.ch) & [Magalie Vetter](magalie.vetter@chartes.psl.eu)
 
+Available on [GitHub](https://github.com/Amustache/ML-2019/edit/master/project2/).
+
 ---
 
 ## 0. Introduction
