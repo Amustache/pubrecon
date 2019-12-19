@@ -85,7 +85,7 @@ Select one of the following options to use the package.
 
 ### 3b. `run.py`
 
-TODO
+Not working for now.
 
 ### 3c. Go wild
 
@@ -115,7 +115,7 @@ Basically [contact me on Telegram](https://t.me/Stache).
 
 ## Acknowledgments
 
-Thanks to Yannick Rochat and Magalie Vetter for supervising our project. Thanks to Johan Paratte for the precious help.
+Thanks Yannick Rochat and Magalie Vetter for supervising our project. Thanks Johan Paratte and Yoann Ponti for their input. Thanks Louis Vialiar and Camille Montemagni for the proofreading and testing.
 
 ## Changelog
 
