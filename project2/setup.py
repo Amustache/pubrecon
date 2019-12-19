@@ -21,5 +21,5 @@ setuptools.setup(name='pubrecon',
                                    'pandas==0.25.3', 'sklearn'],
                  include_package_data=True,
                  zip_safe=False,
-                 python_requires='==3.7',
+                 python_requires='==3.7.5',
                  )
