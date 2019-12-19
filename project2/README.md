@@ -20,7 +20,7 @@ Please follow this `README.md` to make the package work.
 
 ## 1. Installation
 
-We assume that you have Python 3.7+ and Pip 19.3+ installed and working. You may experience issues if it is not the case.
+We assume that you have `python==3.7` and `pip>=19.3` installed and working. You may experience issues if it is not the case.
 
 ### 1a. Structure
 
