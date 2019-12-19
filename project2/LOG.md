@@ -2,6 +2,8 @@
 
 ## 2019.12.19
 - Bla bla rush final okay bon.
+- For the record: j'ai essayé talos et hyperas mais ça marche moyen avec mon implémentation.
+- Faut explorer https://github.com/fizyr/keras-retinanet aussi.
 
 ## 2019.12.18
 - Test du modèle sur un autre ordinateur. On se rend compte que si tensorflow-gpu est disponible, le modèle ne fonctionne pas.
