@@ -40,7 +40,7 @@ class RCNN:
         if opt is None:  # https://keras.io/optimizers/
             self.opt = optimizers.Adam(lr=self.lr)
         else:
-            self.opt = opt
+            self.opt = opt(lr=self.lr)
 
         self.hist = None
         self.classes = []
@@ -77,7 +77,7 @@ class RCNN:
             self.model.load_weights(os.path.join(model_and_weights_path, "weights.h5"))
 
             # Compile model
-            self.model.compile(loss=self.loss, optimizer=self.opt, metrics=["accuracy"])
+            self.model.compile(loss=self.loss, optimizer=self.opt, metrics=['acc'])
 
         if verbose:
             self.summary()
@@ -129,24 +129,21 @@ class RCNN:
         imgdatagen = ImageDataGenerator(horizontal_flip=True, vertical_flip=True, rotation_range=90)
         test_data = imgdatagen.flow(x=X_test, y=y_test, batch_size=batch_size)
 
+        callbacks = []
         # We want checkpoints because losing training suckz lolz. https://keras.io/callbacks/#modelcheckpoint
         if checkpoint_path is not None:
-            checkpoint = ModelCheckpoint(checkpoint_path, monitor='val_loss', verbose=1, save_best_only=True,
-                                     save_weights_only=False, mode='auto', period=1)
-        else:
-            checkpoint = None
+            callbacks.append(ModelCheckpoint(checkpoint_path, monitor='val_loss', verbose=1, save_best_only=True,
+                                             save_weights_only=False, mode='auto', period=1))
 
         # If we are not doing any progress, stops the whole thing. https://keras.io/callbacks/#earlystopping
         if early_stopping:
-            early = EarlyStopping(monitor='val_loss', min_delta=0, patience=epochs/10, verbose=1, mode='auto')
-        else:
-            early = None
+            callbacks.append(EarlyStopping(monitor='val_loss', min_delta=0, patience=epochs/10, verbose=1, mode='auto'))
 
         # FINALLY train the model. https://keras.io/models/sequential/#fit_generator
         steps = ceil(len(train_data) / batch_size)
         self.hist = self.model.fit_generator(generator=train_data, steps_per_epoch=steps, epochs=epochs, verbose=1,
                                              validation_data=test_data, validation_steps=steps,
-                                             callbacks=[checkpoint, early])
+                                             callbacks=callbacks)
 
         return self.hist, self.model
 
