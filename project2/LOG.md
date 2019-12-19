@@ -1,5 +1,8 @@
 # LOGBOOK
 
+## 2019.12.19
+- Bla bla rush final okay bon.
+
 ## 2019.12.18
 - Test du modèle sur un autre ordinateur. On se rend compte que si tensorflow-gpu est disponible, le modèle ne fonctionne pas.
     - cf. https://github.com/matterport/Mask_RCNN/wiki notamment.
