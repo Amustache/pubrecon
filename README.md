@@ -1,6 +1,6 @@
 # **pubrecon** - The _place_ (physical and conceptual) of advertising in video game magazines
 
-CS-433 - Machine Learning - EPFL — Martin Jaggi & Rüdiger Urbanke
+From the course CS-433 - Machine Learning - EPFL — Martin Jaggi & Rüdiger Urbanke, cleaned for public publication.
 
 Made by Stache (me!)
 
