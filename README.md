@@ -1,3 +1,5 @@
+<h1 align="center">⚠️ This repository is not maintained anymore. ⚠️</h1>
+
 # **pubrecon** - The _place_ (physical and conceptual) of advertising in video game magazines
 
 From the course CS-433 - Machine Learning - EPFL — Martin Jaggi & Rüdiger Urbanke, cleaned for public publication.
